@@ -14,4 +14,13 @@
 
 <style>
 	/*每个页面公共css */
+	
+	/*自定义样式表*/
+	@import url("./assets/style/free.css");
+	
+	/*图标样式*/
+	@import url("./assets/style/iconfont.css");
+	
+	/*css动画库*/
+	@import url("./assets/style/animate.css");
 </style>
