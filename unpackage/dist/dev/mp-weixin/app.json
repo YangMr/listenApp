@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/sort/sort",
     "pages/collection/collection",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/readList/readList",
+    "pages/listenNoval/listenNoval",
+    "pages/listenMusic/listenMusic",
+    "pages/listenKnowledge/listenKnowledge"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +50,6 @@
   },
   "usingComponents": {
     "my-icon": "/components/icon/index"
-  }
+  },
+  "sitemapLocation": "sitemap8.json"
 }

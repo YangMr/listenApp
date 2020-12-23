@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-search": "/components/search/index",
+    "my-rotation-chart": "/components/rotationChart/index",
+    "my-function-sort": "/components/functionSort/index",
+    "my-recommond": "/components/recommond/index",
+    "my-book-list": "/components/bookList/index"
+  }
 }

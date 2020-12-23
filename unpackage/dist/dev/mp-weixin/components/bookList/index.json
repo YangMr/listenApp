@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-list-header": "/components/list-header/index",
+    "my-book-item": "/components/bookItem/index"
+  }
+}

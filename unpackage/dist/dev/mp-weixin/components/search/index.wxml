@@ -1,0 +1,1 @@
+<view class="flex justify-center mx-2 align-center border bg-light" style="height:60rpx;opacity:0.8;"><my-icon class="p-1" vue-id="429c6a40-1" iconName="icon-tubiao11" iconSize="25" iconColor="text-light-muted" bind:__l="__l"></my-icon><input class="flex-1 font-sm" type="text" placeholder="搜索你想听的节目"/></view>
