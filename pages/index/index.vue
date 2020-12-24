@@ -11,6 +11,8 @@
 		<my-recommond :Rebooks="Rebooks"></my-recommond>
 		<!-- 书籍列表 -->
 		<my-book-list :bookResources="bookResources"></my-book-list>
+		<!-- 音频播放组件 -->
+		<my-audio></my-audio>
 	</view>
 </template>
 
@@ -25,6 +27,9 @@
 	import myRecommond from "@/components/recommond"
 	//书籍列表组件
 	import myBookList from "@/components/bookList"
+	//音频播放组件
+	import myAudio from "@/components/myAudio"
+	
 	export default {
 		data() {
 			return {
@@ -184,7 +189,8 @@
 			myRotationChart,
 			myFunctionSort,
 			myRecommond,
-			myBookList
+			myBookList,
+			myAudio
 		},
 		onLoad() {
 

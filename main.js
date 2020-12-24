@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-
+import store from "./store"
 //引入icon组件
 import icon from "./components/icon/index.vue"
 
@@ -15,6 +15,7 @@ Vue.prototype.$statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
 Vue.component("myIcon",icon)
 
 const app = new Vue({
+	store,
     ...App
 })
 app.$mount()
