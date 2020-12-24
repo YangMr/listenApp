@@ -18,7 +18,8 @@
 		},
 		{
 			"path": "pages/readList/readList",
-			"style": {}
+			"style": {
+			}
 		},
 		{
 			"path": "pages/listenNoval/listenNoval",
