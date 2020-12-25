@@ -2,11 +2,11 @@
 	<view class="mx-2 mb-2 rounded fixed-bottom " style="opacity: 0.9; height:160rpx; background-color:#d1ccc0;">
 		<!-- 播放进度 -->
 		<view class="flex align-center justify-center" style="color:#7a8388; height: 65rpx;">
-			<view>00:00</view>
+			<view>{{getDurationTime | formatTime}}</view>
 			<view style="width: 500rpx;">
-				<slider block-size="14" activeColor="#e48267" backgroundColor="#eef2f3"/>
+				<slider block-size="14" activeColor="#e48267" :value="getCurrentTime"  :max="getDurationTime ? getDurationTime  : 100" @change="sliderToPlay" @changing="sliderToPlay" backgroundColor="#eef2f3"/>
 			</view>
-			<view>00:00</view>
+			<view>{{getCurrentTime | formatTime}}</view>
 		</view>
 		
 		<!-- 音频简介以及歌曲切换 -->
@@ -29,7 +29,9 @@
 </template>
 
 <script>
+	
 import {mapState,mapGetters,mapMutations,mapActions} from "vuex"	
+import unit from "@/utils/unit.js"
 export default {
 	data(){
 		return {
@@ -37,25 +39,42 @@ export default {
 	},
 	computed:{
 		...mapState({
-			playStatus : ({audio}) => audio.playStatus
+			playStatus : ({audio}) => audio.playStatus,
+			getDurationTime : ({audio}) => audio.durationTime,
+			getCurrentTime : ({audio})=> audio.currentTime
 		}),
 		...mapGetters([
 			"getMusicName",
-			"getSingerName"
+			"getSingerName",
+			// "getDurationTime",
+			// "getCurrentTime",
+			
 		])
+	},
+	
+	filters:{
+		...unit
 	},
 	methods: {
 		...mapActions([
 			"PlayOrPause",
 			"init",
-			"PreOrNext"
+			"PreOrNext",
+			"sliderToPlay"
+		]),
+		...mapMutations([
+			"destruction"
 		])
 		
 		
 	},
 	mounted(){
 		this.init()
+	},
+	beforeDestroy(){
+		this.destruction()
 	}
+	
 }
 </script>
 

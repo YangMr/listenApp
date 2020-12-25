@@ -1735,7 +1735,7 @@ var render = function() {
           attrs: { _i: 1 }
         },
         [
-          _c("v-uni-view", { attrs: { _i: 2 } }, [_vm._v("00:00")]),
+          _c("v-uni-view", { attrs: { _i: 2 } }, [_vm._v(_vm._$g(2, "t0-0"))]),
           _c(
             "v-uni-view",
             { staticStyle: { width: "500rpx" }, attrs: { _i: 3 } },
@@ -1744,14 +1744,24 @@ var render = function() {
                 attrs: {
                   "block-size": "14",
                   activeColor: "#e48267",
+                  value: _vm._$g(4, "a-value"),
+                  max: _vm._$g(4, "a-max"),
                   backgroundColor: "#eef2f3",
                   _i: 4
+                },
+                on: {
+                  change: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  },
+                  changing: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
                 }
               })
             ],
             1
           ),
-          _c("v-uni-view", { attrs: { _i: 5 } }, [_vm._v("00:00")])
+          _c("v-uni-view", { attrs: { _i: 5 } }, [_vm._v(_vm._$g(5, "t0-0"))])
         ],
         1
       ),

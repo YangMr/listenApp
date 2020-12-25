@@ -1,12 +1,14 @@
 import musicResourecs from "./musicResourecs.js"
 const music = musicResourecs.musicResourecs;
-let audio = null;
+let audio = null, timeout =null;
 export default {
 	state: {
 		playStatus : false,
 		playCurrentIndex : 0,
 		musicName : music[0].name,
-		singerName : music[0].singer.name
+		singerName : music[0].singer.name,
+		durationTime: 0, //音频总时长
+		currentTime: 0 //音频播放时刻
 	},
 	getters: {
 		getMusicName(state){
@@ -14,7 +16,13 @@ export default {
 		},
 		getSingerName(state){
 			return state.singerName
-		}
+		},
+		// getDurationTime(state){
+		// 	return state.durationTime
+		// },
+		// getCurrentTime(state){
+		// 	return state.currentTime;
+		// }
 	},
 	mutations: {
 		//事件监听的函数
@@ -22,6 +30,7 @@ export default {
 			//监听播放的函数
 			audio.onPlay(() => {
 				state.playStatus = true;
+				state.durationTime = audio.duration
 				console.log("开始播放")
 			}),
 			//监听暂停的函数
@@ -46,6 +55,7 @@ export default {
 			}),
 			//监听音频播放进度的函数
 			audio.onTimeUpdate((res)=>{
+				state.currentTime = audio.currentTime
 				// console.log(res)
 				// console.log("123")
 			})
@@ -70,11 +80,31 @@ export default {
 			audio.stop();
 		},
 		
+		// 销毁
+		destruction() {
+			audio.offPlay();
+			audio.offPause();
+			audio.offStop();
+			audio.offEnded();
+			audio.offError()
+		},
+		
+		//拖动方法
+		audioSeek(state,data){
+			audio.seek(data)
+		},
+		
 		//改变播放下标的方法
 		changeIndex(state,data){
 			state.playCurrentIndex = data;
+		},
+		
+		//改变当前时间(暂停时)
+		changeCurrentTime(state,time){
+			state.currentTime = time
 		}
 	},
+	
 	actions: {
 		//初始化的方法
 		init({commit}) {
@@ -106,6 +136,16 @@ export default {
 				break;
 			}
 			commit("audioPlay")
+		},
+		//拖动播放的方法
+		sliderToPlay({state,commit},{detail:{value:position}}){
+			let time = position;
+			commit('audioSeek',position)
+			if(!state.playStatus){
+				// commit('audioPlay')
+				clearTimeout(timeout);
+				timeout = setTimeout(()=>commit('changeCurrentTime',time),200)
+			}
 		}
 	}
 }
