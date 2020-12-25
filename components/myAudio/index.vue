@@ -8,19 +8,20 @@
 			</view>
 			<view>00:00</view>
 		</view>
+		
 		<!-- 音频简介以及歌曲切换 -->
 		<view class="flex justify-between align-center mx-2" style="height:95rpx">
 			<view class="flex flex-column ">
-				<text>歌手-The one</text>
-				<text>歌曲-暗香</text>
+				<text>歌手-{{getMusicName}}</text>
+				<text>歌曲-{{getSingerName}}</text>
 			</view>
 			<view class="flex align-center justify-center">
 				<view class="animated" hover-class="pulse">
-					<my-icon iconName="icon-shangyishou" iconColor="text-dark" iconSize="75"></my-icon>
+					<my-icon @my-click="PreOrNext('prev')" iconName="icon-shangyishou" iconColor="text-dark" iconSize="75"></my-icon>
 				</view>
-				<my-icon iconName="icon-ziyuan" iconColor="text-dark" iconSize="75" class="mx-2"></my-icon>
+				<my-icon @my-click="PlayOrPause" :iconName="playStatus ? 'icon-bofang': 'icon-ziyuan'" iconColor="text-dark" iconSize="75" class="mx-2"></my-icon>
 				<view class="animated" hover-class="pulse">
-					<my-icon iconName="icon-xiayishou" iconColor="text-dark" iconSize="75"></my-icon>
+					<my-icon @my-click="PreOrNext('next')" iconName="icon-xiayishou" iconColor="text-dark" iconSize="75"></my-icon>
 				</view>
 			</view>
 		</view>
@@ -32,13 +33,28 @@ import {mapState,mapGetters,mapMutations,mapActions} from "vuex"
 export default {
 	data(){
 		return {
-			playStatus : false
 		}
 	},
 	computed:{
+		...mapState({
+			playStatus : ({audio}) => audio.playStatus
+		}),
+		...mapGetters([
+			"getMusicName",
+			"getSingerName"
+		])
 	},
 	methods: {
+		...mapActions([
+			"PlayOrPause",
+			"init",
+			"PreOrNext"
+		])
 		
+		
+	},
+	mounted(){
+		this.init()
 	}
 }
 </script>

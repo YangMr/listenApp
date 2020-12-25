@@ -1767,8 +1767,12 @@ var render = function() {
             "v-uni-view",
             { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
             [
-              _c("v-uni-text", { attrs: { _i: 8 } }, [_vm._v("歌手-The one")]),
-              _c("v-uni-text", { attrs: { _i: 9 } }, [_vm._v("歌曲-暗香")])
+              _c("v-uni-text", { attrs: { _i: 8 } }, [
+                _vm._v("歌手-" + _vm._$g(8, "t0-0"))
+              ]),
+              _c("v-uni-text", { attrs: { _i: 9 } }, [
+                _vm._v("歌曲-" + _vm._$g(9, "t0-0"))
+              ])
             ],
             1
           ),
@@ -1782,12 +1786,26 @@ var render = function() {
                   staticClass: _vm._$g(11, "sc"),
                   attrs: { "hover-class": "pulse", _i: 11 }
                 },
-                [_c("my-icon", { attrs: { _i: 12 } })],
+                [
+                  _c("my-icon", {
+                    attrs: { _i: 12 },
+                    on: {
+                      "my-click": function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
+                  })
+                ],
                 1
               ),
               _c("my-icon", {
                 staticClass: _vm._$g(13, "sc"),
-                attrs: { _i: 13 }
+                attrs: { _i: 13 },
+                on: {
+                  "my-click": function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
               }),
               _c(
                 "v-uni-view",
@@ -1795,7 +1813,16 @@ var render = function() {
                   staticClass: _vm._$g(14, "sc"),
                   attrs: { "hover-class": "pulse", _i: 14 }
                 },
-                [_c("my-icon", { attrs: { _i: 15 } })],
+                [
+                  _c("my-icon", {
+                    attrs: { _i: 15 },
+                    on: {
+                      "my-click": function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
+                  })
+                ],
                 1
               )
             ],
