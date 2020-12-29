@@ -32,6 +32,10 @@
 		{
 			"path": "pages/listenKnowledge/listenKnowledge",
 			"style": {}
+		},
+		{
+			"path" : "pages/bookDetail/bookDetail",
+			"style": {}
 		}
 	],
 	"globalStyle": {

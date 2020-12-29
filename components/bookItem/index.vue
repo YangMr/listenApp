@@ -1,5 +1,5 @@
 <template>
-	<view class="px-2 border-bottom flex align-center py-4 " >
+	<view class="px-2 border-bottom flex align-center py-4 " @tap="goBookDetail">
 		<image :src="imgurl" mode="aspectFill" class="rounded mx-2" style="width:250rpx; height:250rpx"></image>
 		<view class="flex flex-column justify-between flex-1" style="height:250rpx">
 			<text class="font-md  font-weight-bold">{{name}}</text>
@@ -22,6 +22,13 @@ export default {
 		synopsis : {
 			type : String,
 			default : ""
+		}
+	},
+	methods : {
+		goBookDetail(){
+			uni.navigateTo({
+				url : "../../pages/bookDetail/bookDetail"
+			})
 		}
 	}
 }

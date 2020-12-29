@@ -1,5 +1,5 @@
 <template>
-	<view class="flex flex-column align-center flex-1 position-relative" style="height:300rpx;overflow:hidden">
+	<view class="flex flex-column align-center flex-1 position-relative" style="height:300rpx;overflow:hidden" @tap="goBookDetail">
 		<image :src="itemSrc" mode="widthFix" style="height:100%; width: 250rpx;"></image>
 		<text class="font my-1 text-light-black">{{itemName}}</text>
 		<my-icon iconColor="text-light-white" iconName="icon-erji" class="position-absolute" iconSize="35" style=" left :45rpx ; top: 20rpx;"></my-icon>
@@ -16,6 +16,13 @@
 			itemName: {
 				tyep: String,
 				default: ""
+			}
+		},
+		methods: {
+			goBookDetail(){
+				uni.navigateTo({
+					url : "/pages/bookDetail/bookDetail"
+				})
 			}
 		}
 	}
