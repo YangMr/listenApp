@@ -1,5 +1,5 @@
 <template>
-	<view class="flex bg-hover-dark border text-center bg-white " style="height:80rpx;justify-content: space-around; ">
+	<view class="flex bg-hover-dark border-bottom text-center bg-white " style="height:80rpx;justify-content: space-around; ">
 		<block v-for="(item,index) in tabArr" :key="index">
 			<view class="flex flex-column align-center justify-between" @tap="selected(index)">
 				<view class="text-light-black pt-1 animated faster" :class="tabIndex === index ? 'font-weight-bold pulse':''"> {{item}} </view>
@@ -13,10 +13,14 @@
 export default {
 	data(){
 		return {
-			tabIndex : 0
+			
 		}
 	},
 	props : {
+		tabIndex : {
+			type : [String,Number],
+			default : ""
+		},
 		tabArr : {
 			type : Array,
 			default : []
@@ -24,7 +28,7 @@ export default {
 	},
 	methods : {
 		selected(index){
-			this.tabIndex = index;
+			//将子组件的数据发送给了父组件
 			this.$emit('getTabIndex', index)
 		}
 	}
