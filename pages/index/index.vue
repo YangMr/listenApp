@@ -12,7 +12,7 @@
 		<!-- 书籍列表 -->
 		<my-book-list :bookResources="bookResources"></my-book-list>
 		<!-- 音频播放组件 -->
-		<my-audio></my-audio>
+		<my-audio @toMusicDetail="toMusicDetail"></my-audio>
 	</view>
 </template>
 
@@ -196,7 +196,11 @@
 
 		},
 		methods: {
-
+			toMusicDetail(){
+				uni.navigateTo({
+					url : "/pages/musicDetail/musicDetail"
+				})
+			}
 		}
 	}
 </script>

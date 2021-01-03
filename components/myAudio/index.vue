@@ -1,5 +1,5 @@
 <template>
-	<view class="mx-2 mb-2 rounded fixed-bottom " style="opacity: 0.9; height:160rpx; background-color:#d1ccc0;">
+	<view class="mx-2 mb-2 rounded fixed-bottom " style="opacity: 0.9; height:160rpx; background-color:#d1ccc0;" @tap="sendMethod">
 		<!-- 播放进度 -->
 		<view class="flex align-center justify-center" style="color:#7a8388; height: 65rpx;">
 			<view>{{getDurationTime | formatTime}}</view>
@@ -64,7 +64,10 @@ export default {
 		]),
 		...mapMutations([
 			"destruction"
-		])
+		]),
+		sendMethod(){
+			this.$emit("toMusicDetail")
+		}
 		
 		
 	},
