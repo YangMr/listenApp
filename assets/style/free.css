@@ -258,6 +258,15 @@
 	lines: 1;
 	/* #endif */
 }
+/* 多行文字溢出处理, 测试支持H5 app 微信 */
+.Multi-row-truncation {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 /* 文字粗细和斜体 */
 .font-weight-light {font-weight: 300;}      /*细*/
 .font-weight-lighter {font-weight: 100;}/*更细*/
