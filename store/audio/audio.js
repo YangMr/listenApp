@@ -7,6 +7,8 @@ export default {
 		playCurrentIndex : 0,
 		musicName : music[0].name,
 		singerName : music[0].singer.name,
+		synopsis : music[0].singer.synopsis,
+		audioList : [],
 		durationTime: 0, //音频总时长
 		currentTime: 0 //音频播放时刻
 	},
@@ -17,6 +19,12 @@ export default {
 		getSingerName(state){
 			return state.singerName
 		},
+		getSynopsis(state){
+			return state.synopsis
+		},
+		getAudio(state){
+			return state.audioList
+		}
 		// getDurationTime(state){
 		// 	return state.durationTime
 		// },
@@ -102,6 +110,18 @@ export default {
 		//改变当前时间(暂停时)
 		changeCurrentTime(state,time){
 			state.currentTime = time
+		},
+		
+		//获取歌曲名称以及作者名称方法
+		getAudioList(state,data){
+			for(var i=0;i<data.length;i++){
+				state.audioList.push({
+					id : data[i].id,
+					name : data[i].name,
+					singerName : data[i].singer.name,
+					playStatus : 0
+				})
+			}
 		}
 	},
 	
@@ -111,6 +131,7 @@ export default {
 			if (audio) {
 				return;
 			}
+			commit("getAudioList",music)
 			audio = uni.createInnerAudioContext();
 			commit("addAudioEvent")
 		},
