@@ -75,6 +75,7 @@ export default {
 			audio.src = music[index].src;
 			state.musicName = music[index].name;
 			state.singerName = music[index].singer.name;
+			state.synopsis = music[index].singer.synopsis;
 			audio.play()
 		},
 		
@@ -167,6 +168,27 @@ export default {
 				clearTimeout(timeout);
 				timeout = setTimeout(()=>commit('changeCurrentTime',time),200)
 			}
+		},
+		//列表歌曲切换
+		changeMusic({commit,state},id){
+			//获取对应歌曲的下标
+			const index = music.findIndex((item,index)=>{
+				return id == item.id
+			});
+			if (state.playCurrentIndex === index) {
+				if (state.playStatus) {
+					commit('audioPause')
+				} else {
+					commit('audioPlay')
+				}
+				return
+			} else{
+				commit('audioStop');
+			}
+			//改变歌曲播放的下标
+			commit("changeIndex",index);
+			//播放歌曲
+			commit("audioPlay")
 		}
 	}
 }

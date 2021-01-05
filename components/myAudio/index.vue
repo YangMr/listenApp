@@ -1,5 +1,5 @@
 <template>
-	<view class="mx-2 mb-2 rounded fixed-bottom " style="opacity: 0.9; height:160rpx; background-color:#d1ccc0;" @tap="sendMethod">
+	<view class="mx-2 mb-2 rounded fixed-bottom " style="opacity: 0.9; height:160rpx; background-color:#d1ccc0;" :style="{bottom: `${windowBottom}px`}">
 		<!-- 播放进度 -->
 		<view class="flex align-center justify-center" style="color:#7a8388; height: 65rpx;">
 			<view>{{getDurationTime | formatTime}}</view>
@@ -11,7 +11,7 @@
 		
 		<!-- 音频简介以及歌曲切换 -->
 		<view class="flex justify-between align-center mx-2" style="height:95rpx">
-			<view class="flex flex-column ">
+			<view class="flex flex-column " @tap="sendMethod">
 				<text>歌手-{{getMusicName}}</text>
 				<text>歌曲-{{getSingerName}}</text>
 			</view>
@@ -35,6 +35,7 @@ import unit from "@/utils/unit.js"
 export default {
 	data(){
 		return {
+			windowBottom : uni.getSystemInfoSync().windowBottom
 		}
 	},
 	computed:{

@@ -1,1 +1,1 @@
-<view>听音乐页面</view>
+<view><my-page-title vue-id="bf37d47c-1" bind:__l="__l" vue-slots="{{['title']}}"><view slot="title">音乐</view></my-page-title><my-page-book-list vue-id="bf37d47c-2" bookListArray="{{bookListArray}}" bind:__l="__l"></my-page-book-list><uni-load-more vue-id="bf37d47c-3" status="{{status}}" bind:__l="__l"></uni-load-more></view>

@@ -1,1 +1,1 @@
-<view>榜单页面</view>
+<view><my-page-title vue-id="78f40cc0-1" bind:__l="__l" vue-slots="{{['title']}}"><view slot="title">榜单</view></my-page-title><my-page-book-list vue-id="78f40cc0-2" bookListArray="{{bookListArray}}" bind:__l="__l"></my-page-book-list><uni-load-more vue-id="78f40cc0-3" status="{{status}}" bind:__l="__l"></uni-load-more></view>

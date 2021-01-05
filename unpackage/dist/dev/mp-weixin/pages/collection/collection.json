@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-search": "/components/search/index",
+    "my-tab": "/components/tapTop/index",
+    "my-collection-item": "/components/collectionItem/index",
+    "my-pop-up": "/components/uni-popup/uni-popup"
+  }
 }

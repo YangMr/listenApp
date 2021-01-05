@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-page-title": "/components/pageTitle/index",
+    "my-tab-top": "/components/tapTop/index",
+    "my-book-info": "/components/bookInfo/index"
+  }
+}

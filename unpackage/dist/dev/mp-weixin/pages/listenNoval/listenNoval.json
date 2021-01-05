@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "my-page-title": "/components/pageTitle/index",
+    "my-page-book-list": "/components/pageBookList/index"
+  }
 }

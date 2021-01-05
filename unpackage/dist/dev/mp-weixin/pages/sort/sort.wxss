@@ -1,0 +1,5 @@
+
+.selected {
+	color: #f7646d;
+}
+

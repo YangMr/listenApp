@@ -7,7 +7,9 @@
     "pages/readList/readList",
     "pages/listenNoval/listenNoval",
     "pages/listenMusic/listenMusic",
-    "pages/listenKnowledge/listenKnowledge"
+    "pages/listenKnowledge/listenKnowledge",
+    "pages/bookDetail/bookDetail",
+    "pages/musicDetail/musicDetail"
   ],
   "subPackages": [],
   "window": {
@@ -50,6 +52,5 @@
   },
   "usingComponents": {
     "my-icon": "/components/icon/index"
-  },
-  "sitemapLocation": "sitemap1.json"
+  }
 }

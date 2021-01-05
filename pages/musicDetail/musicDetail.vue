@@ -1,10 +1,10 @@
 <template>
-	<view>
+	<view style="height:100vh" :class="nightStatus?'nightTheme':''">
 		<!-- 通知栏高度 -->
 		<view :style="{height : `${statusBarHeight}px`}" ></view>
 		
 		<!-- 音乐详情页标题 -->
-		<my-page-title><template v-slot:title>音乐详情</template></my-page-title>
+		<my-page-title :Theme="nightStatus?'nightTheme':''"><template v-slot:title>音乐详情</template></my-page-title>
 		
 		<!-- 歌曲信息 -->
 		<view class="flex flex-column align-center justify-center pb-2" style="margin-top:-40rpx">
@@ -64,7 +64,7 @@
 		</view>
 		
 		<!-- 歌曲简介 -->
-		<view class=" fixed-bottom shadow p-2 bg-white animated fadeInUp "  style="height: 260rpx;border-radius: 30rpx; z-index: 0;" v-if="!listStatus">
+		<view :class="nightStatus?'nightTheme':''" class=" fixed-bottom shadow p-2 bg-white animated fadeInUp "  style="height: 260rpx;border-radius: 30rpx; z-index: 0;" v-if="!listStatus">
 			<view class="flex justify-between">
 				<view>
 					<view>
@@ -88,11 +88,11 @@
 		</view>
 	
 		<!-- 歌曲列表 -->
-		<view class=" fixed-bottom shadow p-2 bg-white animated fadeInUp"  style="height: 350rpx;border-radius: 30rpx;" v-else>
+		<view :class="nightStatus?'nightTheme':''" class=" fixed-bottom shadow p-2 bg-white animated fadeInUp"  style="height: 350rpx;border-radius: 30rpx;" v-else>
 			<view class="font-weight-bold font-md" style="height: 50rpx;">列表选择</view>
 			<scroll-view scroll-y style="height: 350rpx;">
 				<block v-for="(item, index) in getAudio" :key="item.id">
-					<view class="flex align-center font px-2" style="height: 85rpx;" hover-class="bg-light">
+					<view @tap="changeMusic(item.id)" class="flex align-center font px-2" style="height: 85rpx;" :hover-class="nightStatus?'nightTheme':''">
 						<text class="flex-1 text-ellipsis">{{item.name}}</text>
 						<text class="flex-1 text-ellipsis">{{item.singerName}}</text>
 						<view class="flex-1 ml-3 flex align-center">
@@ -160,7 +160,8 @@ export default {
 			"PlayOrPause",
 			"init",
 			"PreOrNext",
-			"sliderToPlay"
+			"sliderToPlay",
+			"changeMusic"
 		]),
 		changeStatus(status){
 			this[status] = !this[status];

@@ -1,0 +1,1 @@
+<view><block wx:for="{{bookListArray}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block><my-book-item vue-id="{{'2f925b32-1-'+index}}" imgurl="{{item.imgurl}}" name="{{item.name}}" synopsis="{{item.synopsis}}" bind:__l="__l"></my-book-item></block></block></view>

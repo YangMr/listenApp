@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-page-title": "/components/pageTitle/index",
+    "my-pop-up": "/components/uni-popup/uni-popup"
+  }
+}

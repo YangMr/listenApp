@@ -386,6 +386,16 @@
 	overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
 }
 
+/* 多行文字溢出处理, 测试支持H5 app 微信 */
+.Multi-row-truncation {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 /* 文字粗细和斜体 */
 .font-weight-light {font-weight: 300;}
 
@@ -3784,5 +3794,11 @@ to {
     -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
 }
+}
+
+/* 自定义主题 */
+.nightTheme {
+	background-color: #4C5662;
+	color: #c1cbcd;
 }
 

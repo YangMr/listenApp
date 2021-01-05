@@ -1,1 +1,1 @@
-<view>我是我的页面</view>
+<view><view style="{{'height:'+(statusBarHeight+'px')+';'}}"></view><my-user-info vue-id="bae1c640-1" bind:__l="__l"></my-user-info><my-user-list vue-id="bae1c640-2" userList="{{userList}}" bind:__l="__l"></my-user-list></view>

@@ -4,6 +4,7 @@
     "my-rotation-chart": "/components/rotationChart/index",
     "my-function-sort": "/components/functionSort/index",
     "my-recommond": "/components/recommond/index",
-    "my-book-list": "/components/bookList/index"
+    "my-book-list": "/components/bookList/index",
+    "my-audio": "/components/myAudio/index"
   }
 }
